@@ -15,7 +15,8 @@ class ShowAllJSONObjectsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_show_all_jsonobjects)
 
         txtAllProducts.setOnClickListener {
-            val productsURL = "http://192.168.179.48/ECommerceApp/present_json_array.php"
+            // TODO: Keep updating the IP address
+            val productsURL = "http://172.16.131.17/ECommerceApp/present_json_array.php"
             var allProducts: String = ""
             val requestQ: RequestQueue = Volley.newRequestQueue(this@ShowAllJSONObjectsActivity)
             val jsonArrayRequest: JsonArrayRequest = JsonArrayRequest(Request.Method.GET, productsURL, null,
@@ -28,7 +29,7 @@ class ShowAllJSONObjectsActivity : AppCompatActivity() {
             },
                 {
                     error ->
-                        txtAllProducts.text = error.message
+                        txtAllProducts.text = "Failed to load products"
                 })
 
             requestQ.add(jsonArrayRequest)
