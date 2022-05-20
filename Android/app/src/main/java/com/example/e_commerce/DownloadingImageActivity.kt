@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_downloading_image.*
 
 class DownloadingImageActivity : AppCompatActivity() {
 
-    val urlImage = "172.16.131.17/sample_image.png"
+    val urlImage = "http://172.16.131.17/sample_image.jpg"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
