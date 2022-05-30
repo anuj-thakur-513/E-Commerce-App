@@ -14,7 +14,7 @@
         android:src="@drawable/login"/>
 
     <EditText
-        android:id="@+id/edtLoginEmail"
+        android:id="@+id/activity_main_edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -27,7 +27,7 @@
         android:ems="10"/>
 
     <EditText
-        android:id="@+id/edtLoginPassword"
+        android:id="@+id/activity_main_edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
