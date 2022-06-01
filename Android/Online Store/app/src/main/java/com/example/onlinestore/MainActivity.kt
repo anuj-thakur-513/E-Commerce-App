@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //TODO: Change the IP address accordingly
+        val IP_ADDRESS = "192.168.1.5"
+
         // Changing activity when clicked on sign up
         activity_main_btnSignUp.setOnClickListener {
             var signUpIntent = Intent(this@MainActivity, SignUpActivity::class.java);
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         // Logging in the user
         activity_main_btnLogin.setOnClickListener {
-            val loginUrl = "http://192.168.83.48/OnlineStoreApp/login_app_user.php?email=" +
+            val loginUrl = "http://" + IP_ADDRESS + "/OnlineStoreApp/login_app_user.php?email=" +
                     activity_main_edtEmail.text.toString() +
                     "&pass=" + activity_main_edtPassword.text.toString()
 
@@ -34,6 +37,9 @@ class MainActivity : AppCompatActivity() {
 
                 if (response == "The user does exist"){
                     Toast.makeText(this@MainActivity, response, Toast.LENGTH_SHORT).show()
+                    val homeIntent = Intent(this@MainActivity, HomeScreenActivity::class.java)
+                    startActivity(homeIntent)
+                    finish()
 
                 } else {
                     val dialogBuilder = AlertDialog.Builder(this)

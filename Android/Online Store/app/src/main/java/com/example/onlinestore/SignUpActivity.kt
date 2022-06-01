@@ -1,7 +1,9 @@
 package com.example.onlinestore
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.android.volley.Request
 import com.android.volley.Response
@@ -14,6 +16,9 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        //TODO: Change the IP address accordingly
+        val IP_ADDRESS = "192.168.1.5"
+
         // Changing activity when clicking on login
         activity_sign_up_btnLogin.setOnClickListener {
             finish()
@@ -24,7 +29,7 @@ class SignUpActivity : AppCompatActivity() {
             if (activity_sign_up_edtPassword.text.toString() == activity_sign_up_edtConfirm.text.toString()){
 
                 // Registration Process
-                val signUpURL = "http://192.168.83.48/OnlineStoreApp/join_new_user.php?email=" +
+                val signUpURL = "http://" + IP_ADDRESS + "/OnlineStoreApp/join_new_user.php?email=" +
                         activity_sign_up_edtEmail.text.toString() +
                         "&username=" + activity_sign_up_edtUsername.text.toString() +
                         "&pass=" + activity_sign_up_edtPassword.text.toString()
@@ -37,10 +42,10 @@ class SignUpActivity : AppCompatActivity() {
                         dialogBuilder.setMessage(response)
                         dialogBuilder.create().show()
                     } else {
-                        val dialogBuilder = AlertDialog.Builder(this)
-                        dialogBuilder.setTitle("Alert")
-                        dialogBuilder.setMessage(response)
-                        dialogBuilder.create().show()
+                        Toast.makeText(this@SignUpActivity, response, Toast.LENGTH_SHORT).show()
+                        val homeIntent = Intent(this@SignUpActivity, HomeScreenActivity::class.java)
+                        startActivity(homeIntent)
+                        finish()
                     }
                     
                 }, { error ->
