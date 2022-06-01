@@ -9,6 +9,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
@@ -43,6 +44,9 @@ class SignUpActivity : AppCompatActivity() {
                         dialogBuilder.create().show()
                     } else {
                         Toast.makeText(this@SignUpActivity, response, Toast.LENGTH_SHORT).show()
+
+                        Person.email = activity_sign_up_edtEmail.text.toString()
+
                         val homeIntent = Intent(this@SignUpActivity, HomeScreenActivity::class.java)
                         startActivity(homeIntent)
                         finish()
