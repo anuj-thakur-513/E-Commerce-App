@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context=".HomeScreenActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please choose a brand"
+        android:textSize="20sp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
     <ListView
         android:id="@+id/brandsListView"
