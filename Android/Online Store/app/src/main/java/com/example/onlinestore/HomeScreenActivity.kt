@@ -1,6 +1,7 @@
 package com.example.onlinestore
 
 import android.app.DownloadManager
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -16,7 +17,8 @@ class HomeScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_screen)
 
-        val IP_ADDRESS = "192.168.1.5"
+        // TODO: Change the IP address accordingly
+        val IP_ADDRESS = "192.168.1.6"
         val brandsURL = "http://$IP_ADDRESS/OnlineStoreApp/fetch_brands.php"
 
         var brandsList = ArrayList<String>()
@@ -41,5 +43,15 @@ class HomeScreenActivity : AppCompatActivity() {
         })
 
         requestQ.add(jsonAR)
+
+        // Creating onClick Listener for items in the list
+        brandsListView.setOnItemClickListener { parent, view, position, id ->
+            val tappedBrand = brandsList.get(position)
+            val intent = Intent(this@HomeScreenActivity, FetchEProductsActivity::class.java)
+
+            // Passing the selected brand to the next activity
+            intent.putExtra("BRAND", tappedBrand)
+            startActivity(intent)
+        }
     }
 }

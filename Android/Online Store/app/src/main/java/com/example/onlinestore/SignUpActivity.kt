@@ -18,7 +18,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
 
         //TODO: Change the IP address accordingly
-        val IP_ADDRESS = "192.168.1.5"
+        val IP_ADDRESS = "192.168.1.6"
 
         // Changing activity when clicking on login
         activity_sign_up_btnLogin.setOnClickListener {

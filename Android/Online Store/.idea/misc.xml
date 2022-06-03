@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/Android Apps/E-Commerce/Android/Online Store/app/src/main/res/drawable/plus.xml" value="0.1375" />
+        <entry key="..\:/Projects/Android Apps/E-Commerce/Android/Online Store/app/src/main/res/layout/activity_fetch_eproducts.xml" value="0.3605128205128205" />
         <entry key="..\:/Projects/Android Apps/E-Commerce/Android/Online Store/app/src/main/res/layout/activity_home_screen.xml" value="0.2861111111111111" />
         <entry key="..\:/Projects/Android Apps/E-Commerce/Android/Online Store/app/src/main/res/layout/activity_main.xml" value="0.32314814814814813" />
         <entry key="..\:/Projects/Android Apps/E-Commerce/Android/Online Store/app/src/main/res/layout/activity_sign_up.xml" value="0.3435185185185185" />
         <entry key="..\:/Projects/Android Apps/E-Commerce/Android/Online Store/app/src/main/res/layout/brand_item_text_view.xml" value="0.36614583333333334" />
+        <entry key="..\:/Projects/Android Apps/E-Commerce/Android/Online Store/app/src/main/res/layout/e_product_row.xml" value="0.3333333333333333" />
       </map>
     </option>
   </component>
