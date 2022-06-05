@@ -8,15 +8,16 @@ import android.view.MenuItem
 import android.widget.ArrayAdapter
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_cart_products.*
 
 class CartProductsActivity : AppCompatActivity() {
+    val IP_ADDRESS = "192.168.1.6"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart_products)
 
-        val IP_ADDRESS = "192.168.1.6"
         var cartProductsUrl = "http://$IP_ADDRESS/OnlineStoreApp/fetch_temporary_order.php?email=${Person.email}"
         var cartProductsList = ArrayList<String>()
         var requestQ = Volley.newRequestQueue(this@CartProductsActivity)
@@ -49,6 +50,16 @@ class CartProductsActivity : AppCompatActivity() {
         if (item?.itemId == R.id.continueShoppingItem){
             var intent = Intent(this@CartProductsActivity, HomeScreenActivity::class.java)
             startActivity(intent)
+        } else if(item?.itemId == R.id.declineOrderItem){
+            var deleteUrl = "http://$IP_ADDRESS/OnlineStoreApp/decline_order.php?email=${Person.email}"
+            var requestQ = Volley.newRequestQueue(this@CartProductsActivity)
+            var stringRequest = StringRequest(Request.Method.GET, deleteUrl, {response->
+                var intent = Intent(this@CartProductsActivity, HomeScreenActivity::class.java)
+                startActivity(intent)
+            },{ error->
+
+            })
+            requestQ.add(stringRequest)
         }
         return super.onOptionsItemSelected(item)
     }
