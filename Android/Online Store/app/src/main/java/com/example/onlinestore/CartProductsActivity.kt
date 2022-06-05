@@ -1,7 +1,10 @@
 package com.example.onlinestore
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
@@ -35,5 +38,18 @@ class CartProductsActivity : AppCompatActivity() {
         })
 
         requestQ.add(jsonAR)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.cart_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item?.itemId == R.id.continueShoppingItem){
+            var intent = Intent(this@CartProductsActivity, HomeScreenActivity::class.java)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
