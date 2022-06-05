@@ -5,7 +5,9 @@
         <group>
             <file>file:/C:/xampp/htdocs/OnlineStoreApp/login_app_user.php</file>
             <file>file:/C:/xampp/htdocs/OnlineStoreApp/join_new_user.php</file>
+            <file>file:/C:/xampp/htdocs/OnlineStoreApp/fetch_eproducts.php</file>
             <file>file:/C:/xampp/htdocs/OnlineStoreApp/index.php</file>
+            <file>file:/C:/xampp/htdocs/OnlineStoreApp/fetch_brands.php</file>
         </group>
     </open-files>
 </project-private>
