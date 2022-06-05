@@ -1,12 +1,12 @@
 package com.example.onlinestore
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.e_product_row.view.*
-import java.security.interfaces.RSAMultiPrimePrivateCrtKey
 
 class EProductAdapter(var context: Context, var arrayList: ArrayList<EProduct>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -15,14 +15,19 @@ class EProductAdapter(var context: Context, var arrayList: ArrayList<EProduct>):
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
+        val productView = LayoutInflater.from(context).inflate(R.layout.e_product_row, parent, false)
+        return ProductViewHolder(productView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
+        (holder as ProductViewHolder).initializeRowUIComponents(arrayList.get(position).id,
+            arrayList.get(position).name, arrayList.get(position).price, arrayList.get(position).pictureName)
+
     }
 
     override fun getItemCount(): Int {
-
+        return arrayList.size
     }
 
     inner class ProductViewHolder(pView: View) : RecyclerView.ViewHolder(pView){

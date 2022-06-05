@@ -3,6 +3,7 @@ package com.example.onlinestore
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
@@ -37,7 +38,9 @@ class FetchEProductsActivity : AppCompatActivity() {
                     response.getJSONObject(productJOIndex).getString("picture")))
             }
 
-
+            val pAdapter = EProductAdapter(this@FetchEProductsActivity, productsList)
+            productsRV.layoutManager = LinearLayoutManager(this@FetchEProductsActivity)
+            productsRV.adapter = pAdapter
 
         }, {error->
 
@@ -48,5 +51,6 @@ class FetchEProductsActivity : AppCompatActivity() {
 
         })
 
+        requestQ.add(jsonAR)
     }
 }
