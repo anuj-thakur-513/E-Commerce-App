@@ -1,5 +1,6 @@
 package com.example.onlinestore
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +41,13 @@ class EProductAdapter(var context: Context, var arrayList: ArrayList<EProduct>):
             // Changing space character
             picUrl = picUrl.replace(" ","%20")
             Picasso.get().load(picUrl + picName).into(itemView.imgProduct)
+
+            itemView.imgAdd.setOnClickListener {
+                Person.addToCartProductID = id
+                var amountFragment = AmountFragment()
+                var fragmentManager = (itemView.context as Activity).fragmentManager
+                amountFragment.show(fragmentManager, "TAG")
+            }
         }
     }
 
